@@ -1,0 +1,39 @@
+{
+    "modules": [],
+    "properties": {
+        "backendModules": [],
+        "description": "Show information about the active backend layout for the current page in page module",
+        "emConf": {
+            "category": "be",
+            "custom_category": "",
+            "dependsOn": "typo3 => 9.5.0-9.5.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "skipGenerateDocumentationTemplate": false,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "9.5.0-9.5.99",
+            "version": "1.0.0"
+        },
+        "extensionKey": "layoutinfo",
+        "name": "layoutinfo",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [
+            {
+                "company": "",
+                "email": "kiefer@kiefer.koeln",
+                "name": "Andreas Kiefer",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [],
+        "vendorName": "Kiefer"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2018-11-15 12:46",
+        "extension_builder_version": "9.10.0",
+        "be_user": " (1)"
+    }
+}

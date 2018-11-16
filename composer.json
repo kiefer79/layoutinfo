@@ -1,0 +1,28 @@
+{
+    "name": "kiefer79/layoutinfo",
+    "type": "typo3-cms-extension",
+    "description": "Show information about the active backend layout for the current page in page module",
+    "authors": [
+        {
+            "name": "Andreas Kiefer",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiefer\\LayoutInfo\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kiefer\\LayoutInfo\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "layoutinfo": "self.version",
+        "typo3-ter/layoutinfo": "self.version"
+    }
+}
