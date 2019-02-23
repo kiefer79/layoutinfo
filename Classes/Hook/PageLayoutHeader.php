@@ -3,6 +3,7 @@
 namespace Kiefer\LayoutInfo\Hook;
 
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Backend\View\BackendLayoutView;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -40,16 +41,22 @@ class PageLayoutHeader
             $backendLayoutTitle = 'None';
         }
 
-        $content =
-            $pageLayoutController->iconFactory->getIcon('mimetypes-x-backend_layout', Icon::SIZE_SMALL)->render() . '&nbsp;' .
-            $this->getLanguageService()->sL('LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:backend_layout') .
-            ': ' . $backendLayoutTitle;
+        // params to edit page
+        $onClickEditParams = '&edit[pages][' . $this->id . ']=edit';
+
+        // generate icon and text for button
+        $buttonText = $this->getLanguageService()->sL('LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:backend_layout') . ': ' . $backendLayoutTitle;
 
         /** @var ButtonBar $buttonBar */
         $buttonBar = $pageLayoutController->moduleTemplate->getDocHeaderComponent()->getButtonBar();
+
         $layoutInfoButton = $buttonBar
-            ->makeFullyRenderedButton()
-            ->setHtmlSource($content);
+            ->makeLinkButton()
+            ->setShowLabelText(true)
+            ->setHref("#")
+            ->setOnClick(BackendUtility::editOnClick($onClickEditParams))
+            ->setTitle($buttonText)
+            ->setIcon($pageLayoutController->iconFactory->getIcon('mimetypes-x-backend_layout', Icon::SIZE_SMALL));
         $buttonBar->addButton($layoutInfoButton, ButtonBar::BUTTON_POSITION_RIGHT);
     }
 
